@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangga - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .skill-bar {
+            transition: width 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-800/90 backdrop-blur-sm z-50 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-400">Rangga</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-400 transition-colors">Beranda</a>
+                    <a href="#about" class="hover:text-blue-400 transition-colors">Tentang</a>
+                    <a href="#skills" class="hover:text-blue-400 transition-colors">Keahlian</a>
+                    <a href="#projects" class="hover:text-blue-400 transition-colors">Proyek</a>
+                    <a href="#contact" class="hover:text-blue-400 transition-colors">Kontak</a>
+                </div>
+                <button id="adminBtn" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">
+                    <i class="fas fa-cog mr-2"></i>Admin
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800">
+        <div class="text-center fade-in">
+            <div class="w-32 h-32 bg-blue-500 rounded-full mx-auto mb-8 flex items-center justify-center text-4xl overflow-hidden">
+                <img id="heroImage" src="" alt="Profile" class="w-full h-full object-cover hidden">
+                <i id="heroIcon" class="fas fa-user"></i>
+            </div>
+            <h1 id="heroName" class="text-5xl font-bold mb-4">Rangga</h1>
+            <p id="heroTitle" class="text-xl text-gray-300 mb-8">Full Stack Developer</p>
+            <p id="heroDescription" class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                Passionate developer dengan pengalaman dalam membangun aplikasi web modern dan solusi teknologi inovatif.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#contact" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg transition-colors">
+                    Hubungi Saya
+                </a>
+                <a href="#projects" class="border border-blue-600 hover:bg-blue-600 px-8 py-3 rounded-lg transition-colors">
+                    Lihat Proyek
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Tentang Saya</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="w-64 h-64 bg-blue-500 rounded-lg mx-auto flex items-center justify-center text-6xl overflow-hidden">
+                        <img id="aboutImage" src="" alt="About" class="w-full h-full object-cover hidden">
+                        <i id="aboutIcon" class="fas fa-code"></i>
+                    </div>
+                </div>
+                <div>
+                    <h3 id="aboutTitle" class="text-2xl font-bold mb-6">Pengembang Berpengalaman</h3>
+                    <p id="aboutDescription" class="text-gray-300 mb-6 leading-relaxed">
+                        Saya adalah seorang full stack developer dengan passion dalam menciptakan solusi teknologi yang inovatif. 
+                        Dengan pengalaman lebih dari 3 tahun, saya telah mengerjakan berbagai proyek mulai dari aplikasi web 
+                        hingga sistem enterprise.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-bold text-blue-400">Pengalaman</h4>
+                            <p id="aboutExperience">3+ Tahun</p>
+                        </div>
+                        <div class="bg-gray-700 p-4 rounded-lg">
+                            <h4 class="font-bold text-blue-400">Proyek</h4>
+                            <p id="aboutProjects">50+ Selesai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Keahlian</h2>
+            <div id="skillsList" class="grid md:grid-cols-2 gap-8">
+                <!-- Skills will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Proyek Terbaru</h2>
+            <div id="projectsList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16">Hubungi Saya</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Mari Berkolaborasi</h3>
+                    <p class="text-gray-300 mb-8">
+                        Tertarik untuk bekerja sama? Jangan ragu untuk menghubungi saya!
+                    </p>
+                    <div id="contactInfo" class="space-y-4">
+                        <!-- Contact info will be populated by JavaScript -->
+                    </div>
+                </div>
+                <div>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Nama</label>
+                            <input type="text" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Pesan</label>
+                            <textarea rows="4" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg transition-colors">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+        <div class="bg-gray-800 p-8 rounded-lg w-96">
+            <h3 class="text-2xl font-bold mb-6">Login Admin</h3>
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Username</label>
+                    <input type="text" id="username" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2">Password</label>
+                    <input type="password" id="password" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+                </div>
+                <div class="flex space-x-4">
+                    <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 py-3 rounded-lg transition-colors">
+                        Login
+                    </button>
+                    <button type="button" id="cancelLogin" class="flex-1 bg-gray-600 hover:bg-gray-700 py-3 rounded-lg transition-colors">
+                        Batal
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="fixed inset-0 bg-gray-900 hidden z-50 overflow-y-auto">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">Panel Admin</h2>
+                <button id="logoutBtn" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition-colors">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="mb-8">
+                <div class="flex space-x-4 border-b border-gray-700">
+                    <button class="admin-tab active px-4 py-2 border-b-2 border-blue-500" data-tab="hero">Hero</button>
+                    <button class="admin-tab px-4 py-2 hover:text-blue-400" data-tab="about">About</button>
+                    <button class="admin-tab px-4 py-2 hover:text-blue-400" data-tab="skills">Skills</button>
+                    <button class="admin-tab px-4 py-2 hover:text-blue-400" data-tab="projects">Projects</button>
+                    <button class="admin-tab px-4 py-2 hover:text-blue-400" data-tab="contact">Contact</button>
+                </div>
+            </div>
+
+            <!-- Hero Tab -->
+            <div id="heroTab" class="admin-content">
+                <h3 class="text-2xl font-bold mb-6">Edit Hero Section</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Nama</label>
+                        <input type="text" id="editHeroName" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Jabatan</label>
+                        <input type="text" id="editHeroTitle" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium mb-2">Foto Profil</label>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center overflow-hidden">
+                                <img id="heroPreview" src="" alt="Preview" class="w-full h-full object-cover hidden">
+                                <i id="heroPreviewIcon" class="fas fa-user text-2xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <input type="file" id="heroImageUpload" accept="image/*" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                                <p class="text-sm text-gray-400 mt-1">Upload gambar JPG, PNG, atau GIF</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium mb-2">Deskripsi</label>
+                        <textarea id="editHeroDescription" rows="4" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                    </div>
+                    <div class="md:col-span-2">
+                        <button id="saveHero" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg transition-colors">
+                            Simpan Perubahan
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Tab -->
+            <div id="aboutTab" class="admin-content hidden">
+                <h3 class="text-2xl font-bold mb-6">Edit About Section</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Judul</label>
+                        <input type="text" id="editAboutTitle" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Foto About</label>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-24 h-24 bg-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+                                <img id="aboutPreview" src="" alt="Preview" class="w-full h-full object-cover hidden">
+                                <i id="aboutPreviewIcon" class="fas fa-code text-2xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <input type="file" id="aboutImageUpload" accept="image/*" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                                <p class="text-sm text-gray-400 mt-1">Upload gambar JPG, PNG, atau GIF</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Deskripsi</label>
+                        <textarea id="editAboutDescription" rows="6" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Pengalaman</label>
+                            <input type="text" id="editAboutExperience" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Jumlah Proyek</label>
+                            <input type="text" id="editAboutProjects" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                    </div>
+                    <button id="saveAbout" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg transition-colors">
+                        Simpan Perubahan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Skills Tab -->
+            <div id="skillsTab" class="admin-content hidden">
+                <h3 class="text-2xl font-bold mb-6">Kelola Skills</h3>
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold mb-4">Tambah Skill Baru</h4>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <input type="text" id="newSkillName" placeholder="Nama Skill" class="px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        <input type="number" id="newSkillLevel" placeholder="Level (1-100)" min="1" max="100" class="px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        <button id="addSkill" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition-colors">
+                            Tambah
+                        </button>
+                    </div>
+                </div>
+                <div id="adminSkillsList" class="space-y-4">
+                    <!-- Skills list for admin will be populated here -->
+                </div>
+            </div>
+
+            <!-- Projects Tab -->
+            <div id="projectsTab" class="admin-content hidden">
+                <h3 class="text-2xl font-bold mb-6">Kelola Proyek</h3>
+                <div class="mb-6">
+                    <h4 class="text-lg font-bold mb-4">Tambah Proyek Baru</h4>
+                    <div class="space-y-4">
+                        <input type="text" id="newProjectTitle" placeholder="Judul Proyek" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        <textarea id="newProjectDescription" placeholder="Deskripsi Proyek" rows="3" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                        <input type="text" id="newProjectTech" placeholder="Teknologi (pisahkan dengan koma)" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Gambar Proyek</label>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-20 h-20 bg-blue-500 rounded-lg flex items-center justify-center overflow-hidden">
+                                    <img id="newProjectPreview" src="" alt="Preview" class="w-full h-full object-cover hidden">
+                                    <i id="newProjectPreviewIcon" class="fas fa-laptop-code text-xl"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <input type="file" id="newProjectImageUpload" accept="image/*" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                                    <p class="text-sm text-gray-400 mt-1">Upload gambar JPG, PNG, atau GIF</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="addProject" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition-colors">
+                            Tambah Proyek
+                        </button>
+                    </div>
+                </div>
+                <div id="adminProjectsList" class="space-y-4">
+                    <!-- Projects list for admin will be populated here -->
+                </div>
+            </div>
+
+            <!-- Contact Tab -->
+            <div id="contactTab" class="admin-content hidden">
+                <h3 class="text-2xl font-bold mb-6">Edit Informasi Kontak</h3>
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" id="editContactEmail" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Telepon</label>
+                        <input type="text" id="editContactPhone" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Alamat</label>
+                        <input type="text" id="editContactAddress" class="w-full px-4 py-3 bg-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <button id="saveContact" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg transition-colors">
+                        Simpan Perubahan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data Storage
+        let portfolioData = {
+            hero: {
+                name: "Rangga",
+                title: "Full Stack Developer",
+                description: "Passionate developer dengan pengalaman dalam membangun aplikasi web modern dan solusi teknologi inovatif.",
+                image: ""
+            },
+            about: {
+                title: "Pengembang Berpengalaman",
+                description: "Saya adalah seorang full stack developer dengan passion dalam menciptakan solusi teknologi yang inovatif. Dengan pengalaman lebih dari 3 tahun, saya telah mengerjakan berbagai proyek mulai dari aplikasi web hingga sistem enterprise.",
+                experience: "3+ Tahun",
+                projects: "50+ Selesai",
+                image: ""
+            },
+            skills: [
+                { name: "JavaScript", level: 90 },
+                { name: "React", level: 85 },
+                { name: "Node.js", level: 80 },
+                { name: "Python", level: 75 },
+                { name: "PHP", level: 70 },
+                { name: "MySQL", level: 85 }
+            ],
+            projects: [
+                {
+                    id: 1,
+                    title: "E-Commerce Platform",
+                    description: "Platform e-commerce lengkap dengan sistem pembayaran dan manajemen inventory.",
+                    technologies: ["React", "Node.js", "MongoDB"],
+                    image: ""
+                },
+                {
+                    id: 2,
+                    title: "Task Management App",
+                    description: "Aplikasi manajemen tugas dengan fitur kolaborasi tim dan tracking progress.",
+                    technologies: ["Vue.js", "Express", "PostgreSQL"],
+                    image: ""
+                },
+                {
+                    id: 3,
+                    title: "Learning Management System",
+                    description: "Sistem pembelajaran online dengan fitur video streaming dan quiz interaktif.",
+                    technologies: ["Laravel", "MySQL", "Bootstrap"],
+                    image: ""
+                }
+            ],
+            contact: {
+                email: "rangga@example.com",
+                phone: "+62 812-3456-7890",
+                address: "Jakarta, Indonesia"
+            }
+        };
+
+        // Authentication
+        const adminCredentials = {
+            username: "admin",
+            password: "admin123"
+        };
+
+        let isLoggedIn = false;
+
+        // DOM Elements
+        const adminBtn = document.getElementById('adminBtn');
+        const loginModal = document.getElementById('loginModal');
+        const adminPanel = document.getElementById('adminPanel');
+        const loginForm = document.getElementById('loginForm');
+        const cancelLogin = document.getElementById('cancelLogin');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderPortfolio();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Admin button
+            adminBtn.addEventListener('click', () => {
+                loginModal.classList.remove('hidden');
+                loginModal.classList.add('flex');
+            });
+
+            // Login form
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                if (username === adminCredentials.username && password === adminCredentials.password) {
+                    isLoggedIn = true;
+                    loginModal.classList.add('hidden');
+                    adminPanel.classList.remove('hidden');
+                    loadAdminData();
+                } else {
+                    alert('Username atau password salah!');
+                }
+            });
+
+            // Cancel login
+            cancelLogin.addEventListener('click', () => {
+                loginModal.classList.add('hidden');
+                loginModal.classList.remove('flex');
+            });
+
+            // Logout
+            logoutBtn.addEventListener('click', () => {
+                isLoggedIn = false;
+                adminPanel.classList.add('hidden');
+                document.getElementById('username').value = '';
+                document.getElementById('password').value = '';
+            });
+
+            // Admin tabs
+            document.querySelectorAll('.admin-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabName = tab.dataset.tab;
+                    switchAdminTab(tabName);
+                });
+            });
+
+            // Save buttons
+            document.getElementById('saveHero').addEventListener('click', saveHeroData);
+            document.getElementById('saveAbout').addEventListener('click', saveAboutData);
+            document.getElementById('addSkill').addEventListener('click', addSkill);
+            document.getElementById('addProject').addEventListener('click', addProject);
+            document.getElementById('saveContact').addEventListener('click', saveContactData);
+
+            // Image upload handlers
+            document.getElementById('heroImageUpload').addEventListener('change', handleHeroImageUpload);
+            document.getElementById('aboutImageUpload').addEventListener('change', handleAboutImageUpload);
+            document.getElementById('newProjectImageUpload').addEventListener('change', handleNewProjectImageUpload);
+
+            // Contact form
+            document.getElementById('contactForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Pesan berhasil dikirim! (Demo)');
+                e.target.reset();
+            });
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        function renderPortfolio() {
+            // Render Hero
+            document.getElementById('heroName').textContent = portfolioData.hero.name;
+            document.getElementById('heroTitle').textContent = portfolioData.hero.title;
+            document.getElementById('heroDescription').textContent = portfolioData.hero.description;
+            
+            const heroImage = document.getElementById('heroImage');
+            const heroIcon = document.getElementById('heroIcon');
+            if (portfolioData.hero.image) {
+                heroImage.src = portfolioData.hero.image;
+                heroImage.classList.remove('hidden');
+                heroIcon.classList.add('hidden');
+            } else {
+                heroImage.classList.add('hidden');
+                heroIcon.classList.remove('hidden');
+            }
+
+            // Render About
+            document.getElementById('aboutTitle').textContent = portfolioData.about.title;
+            document.getElementById('aboutDescription').textContent = portfolioData.about.description;
+            document.getElementById('aboutExperience').textContent = portfolioData.about.experience;
+            document.getElementById('aboutProjects').textContent = portfolioData.about.projects;
+            
+            const aboutImage = document.getElementById('aboutImage');
+            const aboutIcon = document.getElementById('aboutIcon');
+            if (portfolioData.about.image) {
+                aboutImage.src = portfolioData.about.image;
+                aboutImage.classList.remove('hidden');
+                aboutIcon.classList.add('hidden');
+            } else {
+                aboutImage.classList.add('hidden');
+                aboutIcon.classList.remove('hidden');
+            }
+
+            // Render Skills
+            renderSkills();
+
+            // Render Projects
+            renderProjects();
+
+            // Render Contact
+            renderContact();
+        }
+
+        function renderSkills() {
+            const skillsList = document.getElementById('skillsList');
+            skillsList.innerHTML = '';
+
+            portfolioData.skills.forEach(skill => {
+                const skillElement = document.createElement('div');
+                skillElement.className = 'bg-gray-700 p-6 rounded-lg';
+                skillElement.innerHTML = `
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold">${skill.name}</h4>
+                        <span class="text-blue-400">${skill.level}%</span>
+                    </div>
+                    <div class="w-full bg-gray-600 rounded-full h-2">
+                        <div class="skill-bar bg-blue-500 h-2 rounded-full" style="width: ${skill.level}%"></div>
+                    </div>
+                `;
+                skillsList.appendChild(skillElement);
+            });
+        }
+
+        function renderProjects() {
+            const projectsList = document.getElementById('projectsList');
+            projectsList.innerHTML = '';
+
+            portfolioData.projects.forEach(project => {
+                const projectElement = document.createElement('div');
+                projectElement.className = 'bg-gray-700 p-6 rounded-lg hover:bg-gray-600 transition-colors';
+                projectElement.innerHTML = `
+                    <div class="w-full h-48 bg-blue-500 rounded-lg mb-4 flex items-center justify-center text-4xl overflow-hidden">
+                        <img src="${project.image || ''}" alt="${project.title}" class="w-full h-full object-cover ${project.image ? '' : 'hidden'}">
+                        <i class="fas fa-laptop-code ${project.image ? 'hidden' : ''}"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">${project.title}</h4>
+                    <p class="text-gray-300 mb-4">${project.description}</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${project.technologies.map(tech => 
+                            `<span class="bg-blue-600 px-3 py-1 rounded-full text-sm">${tech}</span>`
+                        ).join('')}
+                    </div>
+                `;
+                projectsList.appendChild(projectElement);
+            });
+        }
+
+        function renderContact() {
+            const contactInfo = document.getElementById('contactInfo');
+            contactInfo.innerHTML = `
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-envelope text-blue-400 text-xl"></i>
+                    <span>${portfolioData.contact.email}</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-phone text-blue-400 text-xl"></i>
+                    <span>${portfolioData.contact.phone}</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-map-marker-alt text-blue-400 text-xl"></i>
+                    <span>${portfolioData.contact.address}</span>
+                </div>
+            `;
+        }
+
+        function switchAdminTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.admin-tab').forEach(tab => {
+                tab.classList.remove('active', 'border-b-2', 'border-blue-500');
+                tab.classList.add('hover:text-blue-400');
+            });
+            
+            const activeTab = document.querySelector(`[data-tab="${tabName}"]`);
+            activeTab.classList.add('active', 'border-b-2', 'border-blue-500');
+            activeTab.classList.remove('hover:text-blue-400');
+
+            // Show/hide content
+            document.querySelectorAll('.admin-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`${tabName}Tab`).classList.remove('hidden');
+        }
+
+        function loadAdminData() {
+            // Load Hero data
+            document.getElementById('editHeroName').value = portfolioData.hero.name;
+            document.getElementById('editHeroTitle').value = portfolioData.hero.title;
+            document.getElementById('editHeroDescription').value = portfolioData.hero.description;
+            
+            // Load Hero image preview
+            const heroPreview = document.getElementById('heroPreview');
+            const heroPreviewIcon = document.getElementById('heroPreviewIcon');
+            if (portfolioData.hero.image) {
+                heroPreview.src = portfolioData.hero.image;
+                heroPreview.classList.remove('hidden');
+                heroPreviewIcon.classList.add('hidden');
+            }
+
+            // Load About data
+            document.getElementById('editAboutTitle').value = portfolioData.about.title;
+            document.getElementById('editAboutDescription').value = portfolioData.about.description;
+            document.getElementById('editAboutExperience').value = portfolioData.about.experience;
+            document.getElementById('editAboutProjects').value = portfolioData.about.projects;
+            
+            // Load About image preview
+            const aboutPreview = document.getElementById('aboutPreview');
+            const aboutPreviewIcon = document.getElementById('aboutPreviewIcon');
+            if (portfolioData.about.image) {
+                aboutPreview.src = portfolioData.about.image;
+                aboutPreview.classList.remove('hidden');
+                aboutPreviewIcon.classList.add('hidden');
+            }
+
+            // Load Contact data
+            document.getElementById('editContactEmail').value = portfolioData.contact.email;
+            document.getElementById('editContactPhone').value = portfolioData.contact.phone;
+            document.getElementById('editContactAddress').value = portfolioData.contact.address;
+
+            // Load Skills and Projects
+            renderAdminSkills();
+            renderAdminProjects();
+        }
+
+        function saveHeroData() {
+            portfolioData.hero.name = document.getElementById('editHeroName').value;
+            portfolioData.hero.title = document.getElementById('editHeroTitle').value;
+            portfolioData.hero.description = document.getElementById('editHeroDescription').value;
+            
+            // Save hero image if uploaded
+            const heroPreview = document.getElementById('heroPreview');
+            if (heroPreview.src && !heroPreview.classList.contains('hidden')) {
+                portfolioData.hero.image = heroPreview.src;
+            }
+            
+            renderPortfolio();
+            alert('Data hero berhasil disimpan!');
+        }
+
+        function saveAboutData() {
+            portfolioData.about.title = document.getElementById('editAboutTitle').value;
+            portfolioData.about.description = document.getElementById('editAboutDescription').value;
+            portfolioData.about.experience = document.getElementById('editAboutExperience').value;
+            portfolioData.about.projects = document.getElementById('editAboutProjects').value;
+            
+            // Save about image if uploaded
+            const aboutPreview = document.getElementById('aboutPreview');
+            if (aboutPreview.src && !aboutPreview.classList.contains('hidden')) {
+                portfolioData.about.image = aboutPreview.src;
+            }
+            
+            renderPortfolio();
+            alert('Data about berhasil disimpan!');
+        }
+
+        function addSkill() {
+            const name = document.getElementById('newSkillName').value;
+            const level = parseInt(document.getElementById('newSkillLevel').value);
+
+            if (name && level >= 1 && level <= 100) {
+                portfolioData.skills.push({ name, level });
+                renderPortfolio();
+                renderAdminSkills();
+                
+                document.getElementById('newSkillName').value = '';
+                document.getElementById('newSkillLevel').value = '';
+                alert('Skill berhasil ditambahkan!');
+            } else {
+                alert('Mohon isi nama skill dan level (1-100)!');
+            }
+        }
+
+        function renderAdminSkills() {
+            const adminSkillsList = document.getElementById('adminSkillsList');
+            adminSkillsList.innerHTML = '';
+
+            portfolioData.skills.forEach((skill, index) => {
+                const skillElement = document.createElement('div');
+                skillElement.className = 'bg-gray-700 p-4 rounded-lg flex justify-between items-center';
+                skillElement.innerHTML = `
+                    <div>
+                        <span class="font-bold">${skill.name}</span>
+                        <span class="text-blue-400 ml-4">${skill.level}%</span>
+                    </div>
+                    <button onclick="removeSkill(${index})" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded transition-colors">
+                        Hapus
+                    </button>
+                `;
+                adminSkillsList.appendChild(skillElement);
+            });
+        }
+
+        function removeSkill(index) {
+            portfolioData.skills.splice(index, 1);
+            renderPortfolio();
+            renderAdminSkills();
+            alert('Skill berhasil dihapus!');
+        }
+
+        function addProject() {
+            const title = document.getElementById('newProjectTitle').value;
+            const description = document.getElementById('newProjectDescription').value;
+            const techString = document.getElementById('newProjectTech').value;
+
+            if (title && description && techString) {
+                const technologies = techString.split(',').map(tech => tech.trim());
+                const newProjectPreview = document.getElementById('newProjectPreview');
+                
+                const newProject = {
+                    id: Date.now(),
+                    title,
+                    description,
+                    technologies,
+                    image: newProjectPreview.src && !newProjectPreview.classList.contains('hidden') ? newProjectPreview.src : ""
+                };
+
+                portfolioData.projects.push(newProject);
+                renderPortfolio();
+                renderAdminProjects();
+
+                // Reset form
+                document.getElementById('newProjectTitle').value = '';
+                document.getElementById('newProjectDescription').value = '';
+                document.getElementById('newProjectTech').value = '';
+                document.getElementById('newProjectImageUpload').value = '';
+                newProjectPreview.classList.add('hidden');
+                document.getElementById('newProjectPreviewIcon').classList.remove('hidden');
+                
+                alert('Proyek berhasil ditambahkan!');
+            } else {
+                alert('Mohon isi semua field!');
+            }
+        }
+
+        function renderAdminProjects() {
+            const adminProjectsList = document.getElementById('adminProjectsList');
+            adminProjectsList.innerHTML = '';
+
+            portfolioData.projects.forEach((project, index) => {
+                const projectElement = document.createElement('div');
+                projectElement.className = 'bg-gray-700 p-4 rounded-lg';
+                projectElement.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div class="flex items-start space-x-4 flex-1">
+                            <div class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center overflow-hidden flex-shrink-0">
+                                <img src="${project.image || ''}" alt="${project.title}" class="w-full h-full object-cover ${project.image ? '' : 'hidden'}">
+                                <i class="fas fa-laptop-code ${project.image ? 'hidden' : ''}"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-bold text-lg">${project.title}</h4>
+                                <p class="text-gray-300 my-2">${project.description}</p>
+                                <div class="flex flex-wrap gap-2">
+                                    ${project.technologies.map(tech => 
+                                        `<span class="bg-blue-600 px-2 py-1 rounded text-sm">${tech}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="removeProject(${index})" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded transition-colors ml-4">
+                            Hapus
+                        </button>
+                    </div>
+                `;
+                adminProjectsList.appendChild(projectElement);
+            });
+        }
+
+        function removeProject(index) {
+            portfolioData.projects.splice(index, 1);
+            renderPortfolio();
+            renderAdminProjects();
+            alert('Proyek berhasil dihapus!');
+        }
+
+        function saveContactData() {
+            portfolioData.contact.email = document.getElementById('editContactEmail').value;
+            portfolioData.contact.phone = document.getElementById('editContactPhone').value;
+            portfolioData.contact.address = document.getElementById('editContactAddress').value;
+            
+            renderPortfolio();
+            alert('Data kontak berhasil disimpan!');
+        }
+
+        // Image upload handlers
+        function handleHeroImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const heroPreview = document.getElementById('heroPreview');
+                        const heroPreviewIcon = document.getElementById('heroPreviewIcon');
+                        
+                        heroPreview.src = e.target.result;
+                        heroPreview.classList.remove('hidden');
+                        heroPreviewIcon.classList.add('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Mohon pilih file gambar yang valid (JPG, PNG, GIF)');
+                    event.target.value = '';
+                }
+            }
+        }
+
+        function handleAboutImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const aboutPreview = document.getElementById('aboutPreview');
+                        const aboutPreviewIcon = document.getElementById('aboutPreviewIcon');
+                        
+                        aboutPreview.src = e.target.result;
+                        aboutPreview.classList.remove('hidden');
+                        aboutPreviewIcon.classList.add('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Mohon pilih file gambar yang valid (JPG, PNG, GIF)');
+                    event.target.value = '';
+                }
+            }
+        }
+
+        function handleNewProjectImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const newProjectPreview = document.getElementById('newProjectPreview');
+                        const newProjectPreviewIcon = document.getElementById('newProjectPreviewIcon');
+                        
+                        newProjectPreview.src = e.target.result;
+                        newProjectPreview.classList.remove('hidden');
+                        newProjectPreviewIcon.classList.add('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    alert('Mohon pilih file gambar yang valid (JPG, PNG, GIF)');
+                    event.target.value = '';
+                }
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984eb4210771f8e0',t:'MTc1ODg0NzE2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
